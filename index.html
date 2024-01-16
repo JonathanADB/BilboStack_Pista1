@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="stylesheet" href="style2.css">
     <title>Document</title>
 </head>
 <body>
     
 
-    <h1 class="animated-title">¿Qué eres?</h1>
-</body>
+   <!-- Aplica la animación de aparición inicial -->
+   <h1 id="animatedTitle" class="animated-title fadeInDown visible">¿Qué eres?</h1>
+
+
+  <script>
+     document.addEventListener("DOMContentLoaded", function () {
+            const animatedTitle = document.getElementById("animatedTitle");
+
+            // Espera a que termine la animación de aparición inicial y luego inicia la rotación de animate.css
+            animatedTitle.addEventListener("animationend", function () {
+                setTimeout(function () {
+                    animatedTitle.classList.remove("animate__backInDown");
+                    animatedTitle.classList.add("animate__rotateIn");
+                }, 0); // Sin retraso, se ejecuta en el próximo ciclo de eventos
+            });
+        });
+</script>
 </html>
